@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Notes app part 1</title>
+    <script src="https://unpkg.com/vue@next"></script>
+  </head>
+  <body>
+    <h1>Notes app part 1/2</h1>
+
+    <div id="app" class="wrapper">
+      <div>{{ title }}</div>
+
+      <form @submit.prevent="sendData">
+        <input
+          type="text"
+          required
+          v-model="input.value"
+          :placeholder="input.placeholder"
+        />
+        <button type="submit">Отправить</button>
+      </form>
+
+      <div class="notes">
+        <p class="note" v-for="(note, index) in notes" :key="index">
+          <span @click="remove(index)">&#128465;</span>
+          {{note}}
+        </p>
+      </div>
+    </div>
+  </body>
+  <script></script>
+  <script src="app.js"></script>
+</html>
