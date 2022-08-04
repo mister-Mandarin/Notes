@@ -12,6 +12,9 @@
 
     <div id="app" class="wrapper">
       <div>{{ title }}</div>
+      <div v-if="edit" style="color: white; background-color: green">
+        Отредактируйте заметку и нажмите Enter
+      </div>
 
       <form @submit.prevent="sendData">
         <input
@@ -24,10 +27,18 @@
       </form>
 
       <div class="notes">
-        <p class="note" v-for="(note, index) in notes" :key="index">
-          <span @click="remove(index)">&#128465;</span>
-          {{note}}
-        </p>
+        <div
+          class="note"
+          v-for="(note, index) in notes"
+          :key="index"
+          style="display: flex; padding: 10px"
+        >
+          <div>
+            <span @click="remove(index)">&#128465;</span>
+            <span @click="editNote(index)">&#9997;</span>
+          </div>
+          <div class="note">{{note}}</div>
+        </div>
       </div>
     </div>
   </body>

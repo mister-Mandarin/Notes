@@ -9,6 +9,8 @@ const App = {
         placeholder: "Введите текст",
       },
       notes: [],
+      edit: false,
+      editNoteID: "",
     };
   },
   mounted() {
@@ -25,6 +27,12 @@ const App = {
     },
   },
   methods: {
+    editNote(index) {
+      let curTask = this.notes[index];
+      this.editNoteID = index;
+      this.input.value = curTask;
+      this.edit = true;
+    },
     searchNotes() {
       const a = localStorage.getItem("notes");
       if (JSON.parse(a).length == 0) {
@@ -32,7 +40,14 @@ const App = {
       } else this.notes = JSON.parse(a);
     },
     sendData() {
-      this.notes.push(this.input.value);
+      if (!this.edit) {
+        this.notes.push(this.input.value);
+      } else {
+        this.notes[this.editNoteID] = this.input.value;
+        this.edit = false;
+        this.editNoteID = "";
+      }
+
       this.input.value = "";
     },
     remove(index) {
