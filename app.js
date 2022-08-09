@@ -5,15 +5,17 @@ const App = {
     return {
       title: "Notes",
       input: {
-        value: "",
+        value: '',
         placeholder: "Введите текст",
       },
       notes: [],
-      edit: false,
-      editNoteID: "",
+      editNoteIndex: null,
+      lengthError: false,
     };
   },
   mounted() {
+    // при создании страницы ДО ЛОГИКИ вызываем метод,
+    // который вставляет болванку если массив записей пустой
     this.searchNotes();
   },
   // watch следит за свойствами, и когда оно меняется, то выполняет функцию.
@@ -28,10 +30,9 @@ const App = {
   },
   methods: {
     editNote(index) {
-      let curTask = this.notes[index];
-      this.editNoteID = index;
-      this.input.value = curTask;
-      this.edit = true;
+      const curNote = this.notes[index];
+      this.editNoteIndex = index;
+      this.input.value = curNote;
     },
     searchNotes() {
       const a = localStorage.getItem("notes");
@@ -40,15 +41,30 @@ const App = {
       } else this.notes = JSON.parse(a);
     },
     sendData() {
-      if (!this.edit) {
-        this.notes.push(this.input.value);
-      } else {
-        this.notes[this.editNoteID] = this.input.value;
-        this.edit = false;
-        this.editNoteID = "";
+      function validate(value) {
+        return value.length > 3;
       }
 
-      this.input.value = "";
+     this.lengthError = validate(this.input.value);
+console.log(this.editNoteIndex)
+      console.log(!this.editNoteIndex)
+      if (this.lengthError) {
+        // отправляем данные
+        // ! == для того чтобы можно было редактировать 0 элемент массива
+        if (!this.editNoteIndex && this.editNoteIndex !== 0) {
+          this.notes.push(this.input.value.trim());
+        } else {
+          this.notes[this.editNoteIndex] = this.input.value.trim();
+         // this.edit = false;
+          this.editNoteIndex = null;
+        }
+        this.lengthError = false;
+        this.input.value = "";
+      } else {
+        // выводим ошибку
+        this.lengthError = true;
+      }
+
     },
     remove(index) {
       this.notes.splice(index, 1);

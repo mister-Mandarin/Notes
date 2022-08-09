@@ -12,7 +12,7 @@
 
     <div id="app" class="wrapper">
       <div>{{ title }}</div>
-      <div v-if="edit" style="color: white; background-color: green">
+      <div v-if="editNoteIndex != null" style="color: white; background-color: green">
         Отредактируйте заметку и нажмите Enter
       </div>
 
@@ -25,6 +25,10 @@
         />
         <button type="submit">Отправить</button>
       </form>
+
+      <div v-if="lengthError" style="color: white; background-color: red">
+        Длина заметки меньше 3 символов
+      </div>
 
       <div class="notes">
         <div
