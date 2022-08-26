@@ -1,51 +1,51 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Notes app part 1</title>
-    <script src="https://unpkg.com/vue@next"></script>
-  </head>
-  <body>
-    <h1>Notes app part 1/2</h1>
+<html lang = "en">
+<head>
+  <meta charset = "UTF-8"/>
+  <meta http-equiv = "X-UA-Compatible" content = "IE=edge"/>
+  <meta name = "viewport" content = "width=device-width, initial-scale=1.0"/>
+  <title>Notes app part 1</title>
+  <script src = "https://unpkg.com/vue@next"></script>
+</head>
+<body>
+<h1>Notes app part 1/2</h1>
 
-    <div id="app" class="wrapper">
-      <div>{{ title }}</div>
-      <div v-if="editNoteIndex != null" style="color: white; background-color: green">
-        Отредактируйте заметку и нажмите Enter
+<div id = "app" class = "wrapper">
+
+  <div v-if = "editNoteIndex != null" style = "color: white; background-color: green">
+    Отредактируйте заметку и нажмите Enter
+  </div>
+
+  <form @submit.prevent = "sendData">
+    <input
+      type = "text"
+      required
+      v-model = "input.value"
+      :placeholder = "input.placeholder"
+    />
+    <button type = "submit">Отправить</button>
+  </form>
+
+  <div v-if = "lengthError" style = "color: white; background-color: red">
+    Длина заметки меньше 3 символов
+  </div>
+
+  <div class = "notes">
+    <div
+      class = "note"
+      v-for = "(note, index) in notes"
+      :key = "index"
+      style = "display: flex; padding: 10px"
+    >
+      <div>
+        <span @click = "remove(index)">&#128465;</span>
+        <span @click = "editNote(index)">&#9997;</span>
       </div>
-
-      <form @submit.prevent="sendData">
-        <input
-          type="text"
-          required
-          v-model="input.value"
-          :placeholder="input.placeholder"
-        />
-        <button type="submit">Отправить</button>
-      </form>
-
-      <div v-if="lengthError" style="color: white; background-color: red">
-        Длина заметки меньше 3 символов
-      </div>
-
-      <div class="notes">
-        <div
-          class="note"
-          v-for="(note, index) in notes"
-          :key="index"
-          style="display: flex; padding: 10px"
-        >
-          <div>
-            <span @click="remove(index)">&#128465;</span>
-            <span @click="editNote(index)">&#9997;</span>
-          </div>
-          <div class="note">{{note}}</div>
-        </div>
-      </div>
+      <div class = "note">{{ note }}</div>
     </div>
-  </body>
-  <script></script>
-  <script src="app.js"></script>
+  </div>
+</div>
+</body>
+<script></script>
+<script src = "app.js"></script>
 </html>

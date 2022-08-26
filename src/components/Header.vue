@@ -11,7 +11,7 @@
             </router-link>
           </li>
           <li style='width: 40px'>
-            <a href='#' target='_blank'>
+            <a href='https://github.com/mister-Mandarin/tocode-Notes' target='_blank'>
               <img src='https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png'
                    alt='GitHub'>
             </a>
@@ -25,11 +25,11 @@
 <script>
 import { app, links } from '@/_config';
 export default {
-  data() {
-    return {
-      title: app.title,
-      links: links
-    };
-  }
+	data() {
+		return {
+			title: app.title,
+			links: links
+		};
+	}
 };
 </script>

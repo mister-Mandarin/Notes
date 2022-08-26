@@ -32,4 +32,16 @@
     border: 1px solid #ffffff;
     background-color: #ffffff;
   }
+
+  &.btnLong {
+    width: 100%;
+    text-align: center;
+    border-radius: 14px;
+    &:hover {
+      background-color: #2f32bb;
+      box-shadow: 0 30px 30px rgba(0, 0, 0, 0.04);
+      transform: translate(0, -2px);
+      transition-delay: 0s !important;
+    }
+  }
 }
