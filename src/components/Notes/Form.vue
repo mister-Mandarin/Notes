@@ -1,20 +1,43 @@
 <template>
-  <form @submit.prevent = 'sendData'>
+  <form @submit.prevent='sendData'>
     <textarea
-        @keyup.enter = "sendData"
-        required
-        v-model = 'value'
-        placeholder = 'Введите заметку и нажмите Enter...'
+      @keyup.enter="sendData"
+      required
+      v-model='value'
+      placeholder='Введите заметку и&nbsp;нажмите Enter...'
     />
-    <button class = "btn btnPrimary btnLong" type = "submit">Записать</button>
+    <TagList :tags="tags" @clickTag="clickTag"/>
+    <button class="btn btnPrimary btnLong" type="submit">Записать</button>
   </form>
 </template>
 
 <script>
+import TagList from '@/components/Notes/UI/TagList';
+
 export default {
+	components: {
+		TagList
+	},
 	data() {
 		return {
-			value: ''
+			value: '',
+			tags: [
+				{
+					title: 'Дом',
+					active: false
+				},
+				{
+					title: 'Работа',
+					active: false
+				},
+				{
+					title: 'Учёба',
+					active: false
+				},
+				{
+					title: 'Личное',
+					active: false
+				}]
 		};
 	},
 	methods: {
@@ -38,7 +61,17 @@ export default {
 				// }
 
 			}
+		},
+		clickTag(tag) {
+			console.log(tag);
+
 		}
 	}
 };
 </script>
+
+<style lang="scss">
+textarea {
+  margin-bottom: 0;
+}
+</style>
