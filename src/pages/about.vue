@@ -1,52 +1,47 @@
 <template>
-  <div class = "md-body">
+  <div class="md-body">
     <h1>История релизов в этом приложении</h1>
 
     <div>
-      <h2>🐼 Release v...</h2>
+      <h2>🐼 <a href="https://github.com/mister-Mandarin/tocode-Notes/releases/tag/v2.5">Release v2.5</a></h2>
       <h3>Реализовано:</h3>
       <ul>
         <li>Отправка заметки по Enter</li>
         <li>Новые стили вынесены в отдельный файл notes.scss</li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li>Релиза на GitHub
-          <a href = "#">ссылка</a></li>
+        <li>Легкое ДЗ - при клике менять класс тегов</li>
+        <li>Сложное ДЗ - добавлять активные теги к заметке</li>
+        <li>Дополнительно сделалал, чтобы после отправки сбрасывались активные теги</li>
       </ul>
     </div>
     <br>
     <div>
-      <h2>😍 Release v2.0</h2>
+      <h2>😍 <a href="https://github.com/mister-Mandarin/tocode-Notes/releases/tag/v2.0">Release v2.0</a></h2>
       <h3>О релизе:</h3>
       <ul>
         <li>Соединил файлы с Release v1.7 для переноса на vue-cli</li>
         <li>Сборка настроена для дальнейших приложений курса</li>
-        <li>Текст релиза на GitHub
-          <a href = "https://github.com/mister-Mandarin/tocode-Notes/releases/tag/v2.0">ссылка</a></li>
       </ul>
     </div>
     <br>
     <div>
-      <h2>😎 Release v1.7</h2>
+      <h2>😎 <a href="https://github.com/mister-Mandarin/tocode-Notes/releases/tag/v1.7">Release v1.7</a></h2>
       <h3>Ревью от преподавателя и ДЗ:</h3>
       <ul>
-        <li>Реализовано ДЗ - редактирование заметки</li>
+        <li>Исправлены ошибки и недочеты</li>
         <li>Добавлена проверка на длину заметки и trim</li>
-        <li>Полный текст релиза с комментарием на GitHub
-          <a href = "https://github.com/mister-Mandarin/tocode-Notes/releases/tag/v1.7">ссылка</a></li>
       </ul>
     </div>
     <br>
     <div>
-      <h2>🍏 Release v1.0</h2>
+      <h2>🍏 <a href="https://github.com/mister-Mandarin/tocode-Notes/releases/tag/v1.0">Release v1.0</a></h2>
       <h3>Сделано:</h3>
       <ul>
         <li>Приложение без vue-cli</li>
+        <li>ДЗ - редактирование заметки</li>
       </ul>
     </div>
-
-    <p>Сделано на курсе <a href = 'https://tocode.ru/courses/vuejs-3-s-nulya-do-rezultata/?r=l0j'>
+    <br>
+    <p>Сделано на курсе <a href='https://tocode.ru/courses/vuejs-3-s-nulya-do-rezultata/?r=l0j'>
       Vue.js 3 С нуля до результата</a>
     </p>
   </div>

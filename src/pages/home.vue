@@ -1,7 +1,7 @@
 <template>
-  <div class = "md-body">
-    <MainForm @sendData = "sendData" />
-    <ListNotes @removeNote = "removeNote" :notes = "items" />
+  <div class="md-body">
+    <MainForm @sendData="sendData"/>
+    <ListNotes @removeNote="removeNote" :notes="items"/>
   </div>
 </template>
 
@@ -59,12 +59,12 @@ export default {
 				}];
 			} else this.items = JSON.parse(a);
 		},
-		sendData(title) {
-			const note = {
-				title: title.title,
-				tags: title.tags
+		sendData(note) {
+			const notes = {
+				title: note.title,
+				tags: note.tags
 			};
-			this.items.push(note);
+			this.items.push(notes);
 		},
 		removeNote(index) {
 			this.items.splice(index, 1);
