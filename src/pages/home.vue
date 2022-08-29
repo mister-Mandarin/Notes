@@ -1,7 +1,7 @@
 <template>
-  <div class='md-body'>
-    <MainForm @sendData='sendData'/>
-    <ListNotes @removeNote="removeNote" :notes="items"/>
+  <div class = "md-body">
+    <MainForm @sendData = "sendData" />
+    <ListNotes @removeNote = "removeNote" :notes = "items" />
   </div>
 </template>
 
@@ -31,13 +31,13 @@ export default {
 			handler(fullNotes) {
 				localStorage.setItem('items', JSON.stringify(fullNotes));
 			},
-			deep: true,
-		},
+			deep: true
+		}
 	},
 	methods: {
 		searchNotes() {
 			const a = localStorage.getItem('items');
-			if (JSON.parse(a) == null || JSON.parse(a).length == 0) {
+			if (JSON.parse(a) == null || JSON.parse(a).length === 0) {
 				this.items = [{
 					title: 'Задача 1',
 					tags: [{
@@ -61,14 +61,14 @@ export default {
 		},
 		sendData(title) {
 			const note = {
-				title: title,
-				tags: []
+				title: title.title,
+				tags: title.tags
 			};
 			this.items.push(note);
 		},
 		removeNote(index) {
 			this.items.splice(index, 1);
-		},
+		}
 		// editNote(index) {
 		// 	const curNote = this.items[index];
 		// 	this.editNoteIndex = index;

@@ -1,13 +1,13 @@
 <template>
-  <form @submit.prevent='sendData'>
+  <form @submit.prevent = "sendData">
     <textarea
-      @keyup.enter="sendData"
+      @keyup.enter = "sendData"
       required
-      v-model='value'
-      placeholder='Введите заметку и&nbsp;нажмите Enter...'
+      v-model = "value"
+      placeholder = "Введите заметку и&nbsp;нажмите Enter..."
     />
-    <TagList :tags="tags" @clickTag="clickTag"/>
-    <button class="btn btnPrimary btnLong" type="submit">Записать</button>
+    <TagList :tags = "tagsList" @clickTag = "clickTag" />
+    <button class = "btn btnPrimary btnLong" type = "submit">Записать</button>
   </form>
 </template>
 
@@ -21,7 +21,7 @@ export default {
 	data() {
 		return {
 			value: '',
-			tags: [
+			tagsList: [
 				{
 					title: 'Дом',
 					active: false
@@ -42,7 +42,7 @@ export default {
 	},
 	methods: {
 		sendData() {
-
+			const activeTags = this.tagsList.filter(el => el.active === true);
 			const lengthError = this.value.length > 3;
 
 			if (lengthError) {
@@ -50,8 +50,13 @@ export default {
 				// ! == для того чтобы можно было редактировать 0 элемент массива
 				// if (!this.editNoteIndex && this.editNoteIndex !== 0) {
 				// } else {
-				this.$emit('sendData', this.value);
+				const currentNote = {
+					title: this.value,
+					tags: activeTags
+				};
+				this.$emit('sendData', currentNote);
 				this.value = '';
+				return this.tagsList.map(el => el.active === false);
 				// }
 				// 	this.lengthError = false;
 				// 	this.input.value = '';
@@ -63,14 +68,14 @@ export default {
 			}
 		},
 		clickTag(tag) {
-			console.log(tag);
+			//	console.log(tag);
 
 		}
 	}
 };
 </script>
 
-<style lang="scss">
+<style lang = "scss">
 textarea {
   margin-bottom: 0;
 }
