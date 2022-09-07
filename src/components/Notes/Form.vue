@@ -1,13 +1,13 @@
 <template>
-  <form @submit.prevent="sendData">
+  <form @submit.prevent = "sendData">
     <textarea
-      @keyup.enter="sendData"
+      @keyup.enter = "sendData"
       required
-      v-model="value"
-      placeholder="Введите заметку и&nbsp;нажмите Enter..."
+      v-model = "value"
+      placeholder = "Введите заметку и&nbsp;нажмите Enter..."
     />
-    <TagList isActive :tags="tagsName"/>
-    <button class="btn btnPrimary btnLong" type="submit">Записать</button>
+    <TagList isActive :tags = "tagsName" />
+    <button class = "btn btnPrimary btnLong" type = "submit">Записать</button>
   </form>
 </template>
 
@@ -50,7 +50,7 @@ export default {
 					title: this.value,
 					tags: activeTags
 				};
-				this.$emit('sendData', currentNote);
+				this.$store.dispatch('sendData', currentNote);
 				this.value = '';
 				// WOW работает! Перебираем массив, чтобы после отправки заметки
 				// сделать активные теги неактивными
@@ -64,7 +64,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang = "scss">
 textarea {
   margin-bottom: 0;
 }

@@ -1,9 +1,17 @@
 <template>
-  <div class="md-body">
+  <div class = "md-body">
     <h1>История релизов в этом приложении</h1>
-
     <div>
-      <h2>🐼 <a href="https://github.com/mister-Mandarin/tocode-Notes/releases/tag/v2.5">Release v2.5</a></h2>
+      <h2>🥇 <a href = "https://github.com/mister-Mandarin/tocode-Notes/releases/tag/v3.0">Release v3.0</a></h2>
+      <h3>Реализовано:</h3>
+      <ul>
+        <li>Легкое ДЗ - перенести notes на vuex без local storage</li>
+        <li>Сложное ДЗ - перенести все приложение notes на vuex, включая local storage</li>
+      </ul>
+    </div>
+    <br>
+    <div>
+      <h2>🐼 <a href = "https://github.com/mister-Mandarin/tocode-Notes/releases/tag/v2.5">Release v2.5</a></h2>
       <h3>Реализовано:</h3>
       <ul>
         <li>Отправка заметки по Enter</li>
@@ -15,7 +23,7 @@
     </div>
     <br>
     <div>
-      <h2>😍 <a href="https://github.com/mister-Mandarin/tocode-Notes/releases/tag/v2.0">Release v2.0</a></h2>
+      <h2>😍 <a href = "https://github.com/mister-Mandarin/tocode-Notes/releases/tag/v2.0">Release v2.0</a></h2>
       <h3>О релизе:</h3>
       <ul>
         <li>Соединил файлы с Release v1.7 для переноса на vue-cli</li>
@@ -24,7 +32,7 @@
     </div>
     <br>
     <div>
-      <h2>😎 <a href="https://github.com/mister-Mandarin/tocode-Notes/releases/tag/v1.7">Release v1.7</a></h2>
+      <h2>😎 <a href = "https://github.com/mister-Mandarin/tocode-Notes/releases/tag/v1.7">Release v1.7</a></h2>
       <h3>Ревью от преподавателя и ДЗ:</h3>
       <ul>
         <li>Исправлены ошибки и недочеты</li>
@@ -33,7 +41,7 @@
     </div>
     <br>
     <div>
-      <h2>🍏 <a href="https://github.com/mister-Mandarin/tocode-Notes/releases/tag/v1.0">Release v1.0</a></h2>
+      <h2>🍏 <a href = "https://github.com/mister-Mandarin/tocode-Notes/releases/tag/v1.0">Release v1.0</a></h2>
       <h3>Сделано:</h3>
       <ul>
         <li>Приложение без vue-cli</li>
@@ -41,7 +49,7 @@
       </ul>
     </div>
     <br>
-    <p>Сделано на курсе <a href='https://tocode.ru/courses/vuejs-3-s-nulya-do-rezultata/?r=l0j'>
+    <p>Сделано на курсе <a href = "https://tocode.ru/courses/vuejs-3-s-nulya-do-rezultata/?r=l0j">
       Vue.js 3 С нуля до результата</a>
     </p>
   </div>
