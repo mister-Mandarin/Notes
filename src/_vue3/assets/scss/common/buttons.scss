@@ -1,20 +1,19 @@
 .btn {
   display: inline-block;
-  padding: .8em 2.6em;
-  margin: 20px 0;
+  padding: .8em 2em;
   line-height: 1;
   text-transform: uppercase;
   cursor: pointer;
   border-radius: 30px;
 
   // default btn
-  &.btnDefaul {
+  &.btnDefault {
     color: #ffffff;
     border: 1px solid #333333;
     background-color: #333333;
   }
 
-  // primiry btn
+  // primary btn
   &.btnPrimary {
     color: #ffffff;
     border: 1px solid #494ce8;
@@ -32,5 +31,17 @@
     color: #333333;
     border: 1px solid #ffffff;
     background-color: #ffffff;
+  }
+
+  &.btnLong {
+    width: 100%;
+    text-align: center;
+    border-radius: 14px;
+    &:hover {
+      background-color: #2f32bb;
+      box-shadow: 0 30px 30px rgba(0, 0, 0, 0.04);
+      transform: translate(0, -2px);
+      transition-delay: 0s !important;
+    }
   }
 }
