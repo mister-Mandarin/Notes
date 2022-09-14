@@ -1,12 +1,12 @@
 <template>
   <form @submit.prevent = "sendData">
     <textarea
-      @keyup.enter = "sendData"
-      required
       v-model = "value"
       placeholder = "Введите заметку и&nbsp;нажмите Enter..."
+      required
+      @keyup.enter = "sendData"
     />
-    <TagList isActive :tags = "tagsName" />
+    <TagList :tags = "tagsName" isActive />
     <button class = "btn btnPrimary btnLong" type = "submit">Записать</button>
   </form>
 </template>

@@ -5,7 +5,8 @@ import { createRouter, createWebHashHistory } from 'vue-router';
 // какой-либо специальной обработки на уровне сервера.
 const routerHistory = createWebHashHistory();
 
-import homePage from '@/pages/home';
+import homePage from '@/pages/home-vue3';
+import homePage2 from '@/pages/home-vue2';
 import aboutPage from '@/pages/about';
 import notFoundPage from '@/pages/notFound';
 
@@ -14,8 +15,13 @@ const routes = createRouter({
 	routes: [
 		{
 			path: '/',
-			name: 'home',
+			name: 'home 3',
 			component: homePage
+		},
+		{
+			path: '/vue2',
+			name: 'home 2',
+			component: homePage2
 		},
 		{
 			path: '/about',
